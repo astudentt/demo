@@ -24,4 +24,4 @@
 
 > ######实现效果如下：
 
-![signin](/path/image/signin1.jpg "登录")
+![signin](image/signin1.jpg "登录")
