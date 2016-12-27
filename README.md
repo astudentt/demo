@@ -10,18 +10,28 @@
   *placeholder* 已经是大家常用的属性了，在移动端的开发是十分常见的。如果你想要让你的placeholder和input框内容的样式不同，你只需要为placeholder设置自己的样式即可，代码如下：
 
 >::-moz-placeholder {
+
     color: #cccccc;
+
     font-size:16px;
+
 }
+
 :-ms-input-placeholder {
+
     color: #cccccc;
+
     font-size:16px;
+
 }
 ::-webkit-input-placeholder {
+
     color: #cccccc;
+
     font-size:16px;
+
 }
 
 > ######实现效果如下：
-
+<img  src='image/signin1.png'>
 ![signin](/path/image/signin1.png "登录")
