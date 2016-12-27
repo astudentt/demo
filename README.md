@@ -34,4 +34,91 @@
 
 > ######实现效果如下：
 <img  src='image/signin1.png'>
-![signin](/path/image/signin1.png "登录")
+
+<img  src='image/sign2.png'>
+
+####blur事件与click事件冲突
+
+如图，一键清除按钮点击之后需要清除文本框内容，并且在文本框失去焦点时需要将一键清除按钮隐藏。这需要在两个事件添加实现代码，input的blur事件，以及btn的click事件
+
+<img  src='image/signIn3.png'>
+
+>$(".input'").blur(function() {
+
+    $(".btn").hide(); //隐藏一键清除按钮
+  
+});
+  
+  $(".btn").click(function() {
+   
+    $('.input').val(""); //清除input框内容
+     
+     $('.input').focus(); //input框获取焦点
+
+});
+
+但是在测试的过程中发现click事件不被触发，后来查了些资料并且做了测试，发现blur事件哥click事件会有冲突，所以只要为blur事件添加setTimeout函数，在固定秒数后执行即可。修改后的代码为：
+
+> $(".input'").blur(function() {    
+    
+    setTimeout(function () {
+
+      $(".btn").hide(); //隐藏一键清除按钮
+    
+    }, 300);  
+  });
+  
+  $(".btn").click(function() {
+    
+    $('.input').val(""); //清除input框内容
+     
+     $('.input').focus(); //input框获取焦点
+
+});
+
+####ajax内部添加onfocus事件在异步情况下不起作用
+
+点击获取验证码后需要调取ajax并通过返回值判断是否下发成功如果下发成功，则将验证码文本框设为可用状态。并且弹出软键盘，但是在每次调取ajax后添加onfocus事件后，软键盘无法弹出，输入框没有焦点。
+
+<img  src='image/signIn4.png'>
+
+后来经过高人指点，推测有可能在ajax访问的过程中对dom有了重排，可能在onfocus已执行完毕后，页面才被重排。所以输入框没有焦点（只是推测而已）。于是乎将ajax改为同步执行，问题消失。
+
+####获取验证码函数
+
+手机端的登录页面总会有六十秒倒计时函数，下面贴出相应代码：
+
+
+ >       var sh; 
+       
+        function time(o) {  //时间控制
+
+            if (wait == 0) {
+
+                $(".bind-getcodebtn").attr('disabled', false);
+
+                $(".bind-getcodebtn").val("获取验证码");
+
+                wait = 60;
+
+            } else {
+
+                $(".bind-getcodebtn").attr('disabled', true);
+
+                $(".bind-getcodebtn").val(" " + wait + " 秒");
+
+                wait--;
+
+                sh = setTimeout(function () {
+
+                            time(this)
+
+                        },
+
+                        1000)
+
+            }
+
+        }
+
+希望大家能够借鉴（即使我还是个渣渣）。下面是我遇到的问题还没有解决，希望能够得到高人的解答，给input设置type为tel类型，并且一键清除按钮点击之后需要清除文本框内容并获取到焦点，在再次获取焦点时键盘会先弹出全键盘（默认键盘）后，在弹出电话号码键盘，键盘会产生闪烁现象，此现象只出现在ios客户端，推测是ios客户端响应时间比较快所以先弹出全键盘，之后判断是tel类型才出现电话键盘。但查阅各种资料后并没有查到解决方法，希望有高人能够给予解答，谢谢。 
