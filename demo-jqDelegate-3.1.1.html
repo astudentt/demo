@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq事件委托示例</title>
+<link rel="stylesheet" href="">
+</head>
+<body>
+    <div>jquery版本 1.11.1</div>
+    <p class="txt0">这是一个已存在的段落</p>
+    <p class="txt1">这是一个已存在的段落1</p>
+    <p class="txt2">这是一个已存在的段落2</p>
+    <p class="txt3">这是一个已存在的段落3</p>
+</body>
+<script src="plugins/jquery-3.1.1.min.js"></script>
+<script>
+$(function($) {
+    $('body').on("click",".txt0",function(){
+        alert("this is on function " + $(this).text());
+    });
+    $("body").delegate('.txt1',"click",function(){
+        alert("this is delegate function" + $(this).text());
+    });
+    $('.txt2').bind('click', function() {
+        alert("this is bind function" + $(this).text());
+    });
+    // $('.txt3').live('click', function() {
+    //     alert("this is live function" + $(this).text());
+    // });
+    var pList = $('p');
+    for(var i=0;i < pList.length;i++){
+        $(pList[i]).after('<p class="txt'+i+'">Hello</p>');
+    }
+
+});
+</script>
+</html>
