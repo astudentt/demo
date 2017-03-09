@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/reset.css"> 
+    <link rel="stylesheet" href="css/sign.css">   
+</head>
+<body>
+    <main class="main clearfix">
+        <span class="logo"></span>
+        <div class="iptCont"><input type="tel" maxlength="11"/><span class="getCodeIpt">获取验证码</span></div>
+        <div class="iptCont"><input type="tel" maxlength="6" placeholder="输入验证码"/></div>
+        <div class="loginBtnCont"><button class="loginBtn">登录</button></div>
+    </main>
+    <footer class="logHint">这是一段提示文字</footer>
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script>
+    $(function(){
+        function  baseFit(mainHeight,footerHeight,winHeight,btmMargin){
+            var btmMg= btmMargin || 0;
+            return mainHeight < winHeight-footerHeight ? winHeight-footerHeight-btmMg : mainHeight;
+        }  
+        var mainHeight = $('.main').height(); 
+        var footerHeight = $('.logHint').height();
+        var winHeight = $(window).height();
+        $('.main').height(baseFit(mainHeight,footerHeight,winHeight));          
+    }); 
+    </script>
+</body>
+</html>

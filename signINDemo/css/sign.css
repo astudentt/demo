@@ -1,0 +1,61 @@
+.logo{
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin:64px auto;
+    background: url("../image/sign/logo.png") no-repeat;
+    background-size: cover;
+}
+.iptCont input::-moz-placeholder {
+color: #999999;
+font-size:16px;
+}
+
+.iptCont input::-ms-input-placeholder {
+color: #999999;
+font-size:16px;
+}
+.iptCont input::-webkit-input-placeholder {
+color: #999999;
+font-size:16px;
+}
+.iptCont input{
+    -webkit-box-flex: 1;
+    flex: 1;
+    font-size: 16px;
+    color: #333333;
+    text-indent: 10px;
+}
+.iptCont{
+    display: -webkit-flex;
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+    margin: 0 2%;
+    border-bottom: #dddddd solid 1px;
+}
+.getCodeIpt{
+    margin: 0 10px;
+    color:#1a98ff;
+}
+.loginBtn{
+    height:50px;
+    width: 60%;
+    background: #31b0ff;
+    box-shadow:-2px 2px 0px #c5dfff;
+    border: #289fff solid 1px;
+    border-radius: 30px;
+    margin: 50px auto;
+    font-size: 18px;
+    color: #fff;
+}
+.loginBtnCont{
+    text-align: center;
+}
+.logHint{
+    padding:0 0 30px ;
+    text-align: center;
+    font-size: 12px;
+    color: #999999;
+}
