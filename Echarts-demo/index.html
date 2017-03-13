@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Echats demo</title>      
+    <link rel="stylesheet" href="css/index.min.css">
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+</head>
+<body class="bge1e9f7">
+    <main class="main">
+        <div class="fareChartCont">
+            <div class="tit">近六个月消费记录<span class="unit">/元<span></div>
+            <div class="fareChart" id='fareChart'></div>
+        </div>
+    </main>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('fareChart'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {},
+            grid:{
+		        left:45,
+		     	top:30,
+		        right:30,
+		        bottom:50,
+		        borderWidth:0,
+		    },
+            xAxis: {
+                data: ["8月","9月","10月","11月","12月","1月"],
+                axisLine: {
+		            lineStyle: {
+		                width: .5,
+		                color: '#acacac',    
+		            },
+		        },
+                axisTick:{
+                    show:false
+                },                
+            },
+            yAxis: {
+                	axisLine: {
+		                lineStyle: {
+		                	width: .5,
+		                    color: '#acacac',    
+		                },
+		            },
+                    axisTick:{
+                        show:false
+                    },
+                    splitLine:{show: false},//去除网格线
+            },
+            series: [{
+                type: 'line',
+                data: [41.38, 151.23, 380.12, 490.12, 520.12, 120.65],
+                symbol: 'circle',
+                symbolSize: 5,
+                label:{
+                    normal:{
+                        show:true,
+                    }
+                },
+                itemStyle:{
+                    normal:{
+                        color:'#0094ff',
+                    }
+                },
+                areaStyle:{
+                    normal:{
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0, color: '#398aff' // 0% 处的颜色
+                                }, {
+                                offset: 1, color: '#fff' // 100% 处的颜色
+                                }], false)
+                    }
+                },
+                splitLine:{show: false},
+            }],
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
