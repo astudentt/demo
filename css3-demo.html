@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>css3-demo</title>
+    <style>
+    div{
+        display: inline-block;
+        margin: 10px;
+    }
+    .circle {
+        width: 120px;
+        height: 120px;
+        background: #7fee1d;
+        -moz-border-radius: 60px;
+        -webkit-border-radius: 60px;
+        border-radius: 60px;
+    } 
+    .oval {
+        width: 200px;
+        height: 100px;
+        background: #e9337c;
+        -webkit-border-radius: 100px / 50px;
+        -moz-border-radius: 100px / 50px;
+        border-radius: 100px / 50px;
+    } 
+    .triangle {
+        width: 0;
+        height: 0;
+        border-bottom: 140px solid #fcf921;
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+    }
+    .triangleB{
+        width: 0;
+        height: 0;
+        border-top: 140px solid #20a3bf;
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+    }
+    .triangleL{
+        width: 0;
+        height: 0;
+        border-top: 70px solid transparent;
+        border-right: 140px solid #6bbf20;
+        border-bottom: 70px solid transparent;
+    }
+    .triangleR{
+        width: 0;
+        height: 0;
+        border-top: 70px solid transparent;
+        border-left: 140px solid #6bbf20;
+        border-bottom: 70px solid transparent;       
+    }
+    .diamond {
+        width: 120px;
+        height: 120px;
+        background: #1eff00;
+    /* Rotate */
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    /* Rotate Origin */
+        -webkit-transform-origin: 0 100%;
+        -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+        -o-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+        margin: 60px 0 10px 100px;
+    }
+    .trapezium {
+        height: 0;
+        width: 120px;
+        border-bottom: 120px solid #ec3504;
+        border-left: 60px solid transparent;
+        border-right: 60px solid transparent;
+    }
+    .parallelogram {
+        width: 160px;
+        height: 100px;
+        background: #8734f7;
+        -webkit-transform: skew(30deg);
+        -moz-transform: skew(30deg);
+        -o-transform: skew(30deg);
+        transform: skew(30deg);
+    }
+    .star {
+        width: 0;
+        height: 0;
+        margin: 50px 0;
+        color: #fc2e5a;
+        position: relative;
+        display: block;
+        border-right: 100px solid transparent;
+        border-bottom: 70px solid #fc2e5a;
+        border-left: 100px solid transparent;
+        -moz-transform: rotate(35deg);
+        -webkit-transform: rotate(35deg);
+        -ms-transform: rotate(35deg);
+        -o-transform: rotate(35deg);
+    } 
+    .star:before {
+        height: 0;
+        width: 0;
+        position: absolute;
+        display: block;
+        top: -45px;
+        left: -65px;
+        border-bottom: 80px solid #fc2e5a;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        content: '';
+        -webkit-transform: rotate(-35deg);
+        -moz-transform: rotate(-35deg);
+        -ms-transform: rotate(-35deg);
+        -o-transform: rotate(-35deg);
+    }
+  
+    .star:after {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        display: block;
+        top: 3px;
+        left: -105px;
+        color: #fc2e5a;
+        border-right: 100px solid transparent;
+        border-bottom: 70px solid #fc2e5a;
+        border-left: 100px solid transparent;
+        -webkit-transform: rotate(-70deg);
+        -moz-transform: rotate(-70deg);
+        -ms-transform: rotate(-70deg);
+        -o-transform: rotate(-70deg);
+    }
+    .hexagon {
+        width: 100px;
+        height: 55px;
+        background: #fc5e5e;
+        position: relative;
+        margin: 30px 10px;
+    }
+    
+    .hexagon:before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: -25px;
+        left: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 25px solid #fc5e5e;
+    }
+    
+    .hexagon:after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 25px solid #fc5e5e;
+    } 
+    .heart {
+        position: relative;
+        margin: 30px;
+        display: block;
+    }
+    
+    .heart:before,.heart:after {
+        content: "";
+        width: 70px;
+        height: 115px;
+        position: absolute;
+        background: red;
+        left: 70px;
+        top: 0;
+        -webkit-border-radius: 50px 50px 0 0;
+        -moz-border-radius: 50px 50px 0 0;
+        border-radius: 50px 50px 0 0;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transform-origin: 0 100%;
+        -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+        -o-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+    }
+    
+    .heart:after {
+        left: 0;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+    .egg {
+    margin-top: 170px;
+    width: 136px;
+    height: 190px;
+    background: #ffc000;
+    display: block;
+    -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+    .comment_bubble {
+        width: 140px;
+        height: 100px;
+        background: #088cb7;
+        position: relative;
+        -moz-border-radius: 12px;
+        -webkit-border-radius: 12px;
+        border-radius: 12px;
+    }  
+    .comment_bubble:before {
+        content: "";
+        width: 0;
+        height: 0;
+        right: 100%;
+        top: 38px;
+        position: absolute;
+        border-top: 13px solid transparent;
+        border-right: 26px solid #088cb7;
+        border-bottom: 13px solid transparent;
+    }                    
+    .infinity {
+        width: 220px;
+        height: 100px;
+        position: relative;
+    }
+    
+    .infinity:before,.infinity:after {
+        content: "";
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 20px solid #06c999;
+        -moz-border-radius: 50px 50px 0;
+        border-radius: 50px 50px 0 50px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    
+    .infinity:after {
+        left: auto;
+        right: 0;
+        -moz-border-radius: 50px 50px 50px 0;
+        border-radius: 50px 50px 50px 0;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }                    
+    </style>   
+</head>
+<body class="bge1e9f7">
+    <main class="main">
+        <div class="circle"></div>
+        <div class="oval"></div>
+        <div class="triangle"></div>
+        <div class="triangleB"></div>
+        <div class="triangleL"></div>
+        <div class="triangleR"></div>
+        <div class="diamond"></div>
+        <div class="trapezium"></div>
+        <div class="parallelogram"></div>
+        <div class="hexagon"></div>
+        <div class="comment_bubble"></div>
+        <div class="infinity"></div>
+
+        <div><div class="star"></div></div>
+        <div class="heart"></div>
+        <div class="egg"></div>
+
+
+    </main>
+</body>
+</html>
